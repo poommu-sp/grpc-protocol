@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "gitlab.com/fitdigital/digitization/grpc-protocol.git/samantra/services/rm2_services/warehouse;warehouse";
+
+package samantra.services.rm2.warehouse;
+
+import "samantra/common/common.proto";
+
+message Warehouse {
+  string lot_no = 1;
+  string product_code = 2;
+  int64 plant_id = 3;
+  int64 age = 4;
+  common.Amount total = 5;
+  repeated common.PlantQuantity quantities = 6;
+}

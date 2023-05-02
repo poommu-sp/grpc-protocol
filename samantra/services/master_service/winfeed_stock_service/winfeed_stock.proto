@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option go_package = "gitlab.com/fitdigital/digitization/grpc-protocol.git/samantra/services/master_service/winfeed_stock_service;winfeed_stock";
+
+package samantra.services.master.winfeed_stock;
+
+import "google/protobuf/timestamp.proto";
+
+message WinfeedStock {
+  string ID = 1;
+  google.protobuf.Timestamp ReceivedDate = 2;
+  google.protobuf.Timestamp ReceivedTime = 3;
+  string OrgCode = 4;
+  google.protobuf.Timestamp StockDate = 5;
+  google.protobuf.Timestamp Time = 6;
+  string ProductGroup = 7;
+  string ProductCode = 8;
+  string GradeCode = 9;
+  string LotNO = 10;
+  double PurchaseWeight = 11;
+  double TransferRWeight = 12;
+  double ReturnRWeight = 13;
+  double TransformRWeight = 14;
+  double Adjust = 15;
+  double IssuedWeight = 16;
+  double SaleWeight = 17;
+  double TransferIWeight = 18;
+  double ReturnIWeight = 19;
+  double TransformIWeight = 20;
+  double DamageWeight = 21;
+  double WeightTotal = 22;
+}

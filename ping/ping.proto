@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "gitlab.com/fitdigital/digitization/grpc-protocol.git/ping;ping";
+
+package ping;
+
+service PingService {
+  rpc Ping(PongRequest) returns (PongResponse) {}
+}
+
+message PongRequest {
+  string message = 1;
+}
+
+message PongResponse {
+  string message = 1;
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "gitlab.com/fitdigital/digitization/grpc-protocol.git/samantra/services/master_service/winfeed_daily_price_service;winfeed_daily_price";
+
+package samantra.services.master.winfeed_daily_price;
+
+import "google/protobuf/timestamp.proto";
+
+message WinfeedDailyPrice {
+  google.protobuf.Timestamp ReceivedDate = 1;
+  google.protobuf.Timestamp ReceivedTime = 2;
+  string PlantCode = 3;
+  string PlantName = 4;
+  string OrgCode = 5;
+  string OrgName = 6;
+  string ProductGroup = 7;
+  string ProductCode = 8;
+  string LotNO = 9;
+  string DivisionCode = 10;
+  double UnitPrice = 11;
+  google.protobuf.Timestamp RequestDate = 12;
+  google.protobuf.Timestamp StartDate = 13;
+}

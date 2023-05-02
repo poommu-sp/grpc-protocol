@@ -1,0 +1,238 @@
+syntax = "proto3";
+
+option go_package = "gitlab.com/fitdigital/digitization/grpc-protocol.git/samantra/services/master_service;master";
+
+package samantra.services.master;
+
+import "samantra/services/master_service/winfeed_stock_service/winfeed_stock.proto";
+import "samantra/services/master_service/winfeed_purchase_service/winfeed_purchase.proto";
+import "samantra/services/master_service/winfeed_daily_price_service/winfeed_daily_price.proto";
+import "google/protobuf/timestamp.proto";
+
+service Master {
+  rpc GetUsers(Empty) returns (UsersResponse) {}
+  rpc GetProductCodesWithPermission(Empty) returns (ProductCodesResponse) {}
+  rpc GetWinfeedProductReportNamesWithPermission(Empty) returns (WinfeedProductReportNamesResponse) {}
+  rpc GetWinfeedProductReportIDsWithPermission(Empty) returns (WinfeedProductReportIDsResponse) {}
+  rpc GetProductCodesFromWinfeedProductReportName(WinfeedProductReportName) returns (ProductCodesResponse) {}
+  rpc GetProductCodesFromWinfeedProductReportID(WinfeedProductReportID) returns (ProductCodesResponse) {}
+  rpc GetAllPlants(Empty) returns (PlantsResponse) {}
+  rpc GetPlants(Empty) returns (PlantsResponse) {}
+  rpc GetPlantsAgro(Empty) returns (PlantsResponse) {}
+  rpc GetOrgs(Empty) returns (OrgsResponse) {}
+  rpc GetOrgsAgro(Empty) returns (OrgsResponse) {}
+  rpc GetSubOrgs(Empty) returns (SubOrgsResponse) {}
+  rpc GetWinfeedProductComponentsWithSubIDs(GetWinfeedProductComponentsWithSubIDsRequest) returns (WinfeedProductComponentsResponse) {}
+  rpc GetWinfeedDivisionList(Empty) returns (GetWinfeedDivisionListResponse) {}
+  rpc GetWinfeedDivisionListWithPermission(Empty) returns (GetWinfeedDivisionListResponse) {}
+  rpc GetWinfeedDivision(GetWinfeedDivisionRequest) returns (GetWinfeedDivisionResponse) {}
+  rpc ListWinfeedProductByDivisionID(ListWinfeedProductByDivisionIDRequest) returns (ListWinfeedProductByDivisionIDResponse) {}
+  rpc ListWinfeedStock(ListWinfeedStockRequest) returns (ListWinfeedStockResponse) {}
+  rpc ListWinfeedPurchase(ListWinfeedPurchaseRequest) returns (ListWinfeedPurchaseResponse) {}
+  rpc ListWinfeedDailyPrice(ListWinfeedDailyPriceRequest) returns (ListWinfeedDailyPriceResponse) {}
+  rpc GetWinfeedGradeList(Empty) returns (GetWinfeedGradeListResponse) {}
+  rpc ListWinfeedProduct(Empty) returns (ListWinfeedProductByDivisionIDResponse) {}
+}
+
+message Empty {}
+
+message User {
+  string ID = 1;
+  string UserName = 2;
+  string Email = 3;
+  string FullName = 4;
+  string IsActive = 5;
+  int64 CreatedTimestamp = 6;
+}
+
+message UsersResponse {
+  repeated User Users = 1;
+}
+
+message ProductCodesResponse {
+  repeated string ProductCodes = 1;
+}
+
+message WinfeedProductReportNamesResponse {
+  repeated string WinfeedProductReportNames = 1;
+}
+
+message WinfeedProductReportName {
+  string message = 1;
+}
+
+message WinfeedProductReportIDsResponse {
+  repeated int64 ids = 1;
+}
+
+message WinfeedProductReportID {
+  int64 message = 1;
+}
+
+message Plant {
+  int64 id = 1;
+  string name_en = 2;
+  string name_th = 3;
+  string name_short_en = 4;
+  string org_code = 5;
+  string country_alpha3 = 6;
+  string name_short_th = 7;
+  string company_name_th = 8;
+  string company_name_en = 9;
+  string priority = 10;
+  string sap_code = 11;
+  string org_acc_bkp = 12;
+  int64 feedmill_type_id = 13;
+  string rm2_operation_code = 14;
+  string rm2_code = 15;
+  string os_priority = 16;
+}
+
+message PlantsResponse {
+  repeated Plant plants = 1;
+}
+
+message Org {
+  int64 id = 1;
+  int64 plant_id = 2;
+  string name_en = 3;
+  string name_th = 4;
+  string name_short_en = 5;
+  string org_code = 6;
+  string country_alpha3 = 7;
+  string name_short_th = 8;
+  string company_name_th = 9;
+  string company_name_en = 10;
+  string priority = 11;
+  string sap_code = 12;
+  string org_acc_bkp = 13;
+}
+
+message OrgsResponse {
+  repeated Org orgs = 1;
+}
+
+message SubOrg {
+  int64 id = 1;
+  int64 org_id = 2;
+  string name_en = 3;
+  string name_th = 4;
+  string name_short_en = 5;
+  string org_code = 6;
+  string country_alpha3 = 7;
+  string name_short_th = 8;
+  string company_name_th = 9;
+  string company_name_en = 10;
+  string priority = 11;
+  string sap_code = 12;
+  string org_acc_bkp = 13;
+}
+
+message SubOrgsResponse {
+  repeated SubOrg subOrgs = 1;
+}
+
+message GetWinfeedProductComponentsWithSubIDsRequest {
+  repeated int64 message = 1;
+}
+
+message WinfeedProductComponentsResponse {
+  repeated WinfeedProductComponent WinfeedProductComponents = 1;
+}
+
+message WinfeedProductComponent {
+  int64 ID = 1;
+  string Name = 2;
+  repeated WinfeedSubProductComponent WinfeedSubProductReportComponents = 3;
+}
+
+message WinfeedSubProductComponent {
+  int64 ID = 1;
+  int64 WinfeedProductReportID = 2;
+  string Name = 3;
+  repeated WinfeedProduct WinfeedProducts = 4;
+}
+
+message WinfeedProduct {
+  int64 ID = 1;
+  string NameEN = 2;
+  string NameTH = 3;
+  string Origin = 4;
+  string Code = 5;
+  int64 GroupID = 6;
+  int64 PackageID = 7;
+}
+
+message GetWinfeedDivisionRequest {
+  int64 id = 1;
+}
+
+message GetWinfeedDivisionListResponse {
+  repeated WinfeedDivision WinfeedDivisionList = 1;
+}
+
+message GetWinfeedDivisionResponse {
+  WinfeedDivision winfeed_division = 1;
+}
+
+message WinfeedDivision {
+  int64 id = 1;
+  string name = 2;
+  string country_alpha_3 = 3;
+  string country_name = 4;
+  string code = 5;
+}
+
+message ListWinfeedProductByDivisionIDRequest {
+  int64 id = 1;
+}
+
+message ListWinfeedProductByDivisionIDResponse {
+  repeated WinfeedProduct winfeed_product_list = 1;
+}
+
+message ListWinfeedStockRequest {
+  google.protobuf.Timestamp startDate = 1;
+  google.protobuf.Timestamp endDate = 2;
+  repeated string productCodes = 3;
+  string orgCode = 4;
+  string twoDigitTime = 5;
+}
+
+message ListWinfeedStockResponse {
+  repeated winfeed_stock.WinfeedStock listWinfeedStock = 1;
+}
+
+message ListWinfeedPurchaseRequest {
+  google.protobuf.Timestamp startDate = 1;
+  google.protobuf.Timestamp endDate = 2;
+  repeated string productCodes = 3;
+  int64 divisionId = 4;
+  string twoDigitTime = 5;
+  string plantCode = 6;
+  string threeDigitTime = 7;
+}
+
+message ListWinfeedPurchaseResponse {
+  repeated winfeed_purchase.WinfeedPurchase listWinfeedPurchase = 1;
+}
+
+message ListWinfeedDailyPriceRequest {
+  google.protobuf.Timestamp startDate = 1;
+  google.protobuf.Timestamp endDate = 2;
+  repeated string productCodes = 3;
+  string orgCode = 4;
+}
+
+message ListWinfeedDailyPriceResponse {
+  repeated winfeed_daily_price.WinfeedDailyPrice listWinfeedDailyPrice = 1;
+}
+
+message WinfeedGrade {
+  int64 id = 1;
+  string name = 2;
+}
+
+message GetWinfeedGradeListResponse {
+  repeated WinfeedGrade WinfeedGradeList = 1;
+}

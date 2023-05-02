@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "gitlab.com/fitdigital/digitization/grpc-protocol.git/samantra/services/rm2_services/otw;otw";
+
+package samantra.services.rm2.otw;
+
+import "samantra/common/common.proto";
+
+message OTW {
+  string lot_no = 1;
+  repeated common.PlantQuantity Quantities = 2;
+}

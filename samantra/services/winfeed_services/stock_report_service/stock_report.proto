@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option go_package = "gitlab.com/fitdigital/digitization/grpc-protocol.git/samantra/services/winfeed_services/stock_report_service;stock_report";
+
+package samantra.services.winfeed.stock_report;
+
+service StockReport {
+  rpc Get(StockReportPayload) returns (StockReportResponse) {}
+  rpc GetStockReportProductCode(GetStockReportProductCodeRequest) returns (GetStockReportProductCodeResponse) {}
+}
+
+message StockReportPayload {
+  int64 StartDate = 1;
+  int64 EndDate = 2;
+  int64 QuanType = 3;
+}
+
+message GetStockReportProductCodeRequest {
+  int64 StartDate = 1;
+  int64 EndDate = 2;
+}
+
+message StockReportFeedmillQuantity {
+  string OrgCode = 1;
+  string FactoryShortName = 2;
+  double Quantity = 3;
+}
+
+message StockReportItem {
+  int32 ProductNameInReportID = 1;
+  string ProductNameInReportName = 2;
+  int32 SubProductNameInReportID = 3;
+  string SubProductNameInReportName = 4;
+  string LotNo = 5;
+  repeated StockReportFeedmillQuantity FeedmillQuantities = 6;
+  double SumQuantity = 7;
+  bool IsMain = 8;
+  bool IsShown = 9;
+}
+
+message StockReportProductCodeItem {
+  string ProductCode = 1;
+  string LotNo = 2;
+  string GradeCode = 3;
+  repeated StockReportFeedmillQuantity FeedmillQuantities = 4;
+  double SumQuantity = 5;
+}
+
+message StockReportResponse {
+  repeated StockReportItem StockReportList = 1;
+}
+
+message GetStockReportProductCodeResponse {
+  repeated  StockReportProductCodeItem StockReportProductCodeList = 1;
+}

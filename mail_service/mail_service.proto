@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "gitlab.com/fitdigital/digitization/grpc-protocol.git/mail_service;mail_service";
+
+package mail_service;
+
+service MailService {
+  rpc SendApprovalMail(SendApprovalMailRequest) returns (Empty) {}
+}
+
+message Empty {}
+
+message SendApprovalMailRequest {
+  repeated string to = 1;
+  repeated string cc = 2;
+  string doc_type = 3;
+  string doc_no = 4;
+  string redirect_link = 5;
+  int32 status = 6;
+  string remark = 7;
+  string language = 8;
+}
