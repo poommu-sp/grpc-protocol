@@ -9,7 +9,7 @@ package material_area
 import (
 	proto "github.com/golang/protobuf/proto"
 	timestamp "github.com/golang/protobuf/ptypes/timestamp"
-	master_service "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/master_service"
+	master_service "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/master_service"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/local_trade_services/local_manage_lot_service;local_manage_lot";
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/local_trade_services/local_manage_lot_service;local_manage_lot";
 
 package samantra.services.local_trade.local_manage_lot;
 

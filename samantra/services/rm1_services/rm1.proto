@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/rm1_services;rm1";
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/rm1_services;rm1";
 
 package samantra.services.rm1;
 

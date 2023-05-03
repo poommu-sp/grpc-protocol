@@ -7,9 +7,9 @@
 package master
 
 import (
-	winfeed_daily_price_service "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/master_service/winfeed_daily_price_service"
-	winfeed_purchase_service "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/master_service/winfeed_purchase_service"
-	winfeed_stock_service "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/master_service/winfeed_stock_service"
+	winfeed_daily_price_service "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/master_service/winfeed_daily_price_service"
+	winfeed_purchase_service "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/master_service/winfeed_purchase_service"
+	winfeed_stock_service "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/master_service/winfeed_stock_service"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"

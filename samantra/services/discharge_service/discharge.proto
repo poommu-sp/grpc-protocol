@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/discharge_service;discharge";
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/discharge_service;discharge";
 
 import "google/protobuf/timestamp.proto";
 import "samantra/services/master_service/master.proto";

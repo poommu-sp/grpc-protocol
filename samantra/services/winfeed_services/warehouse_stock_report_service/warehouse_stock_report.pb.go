@@ -7,7 +7,7 @@
 package warehouse_stock_report
 
 import (
-	common "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/common"
+	common "github.com/poommu-sp/public-exim-grpc-protocol/samantra/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"

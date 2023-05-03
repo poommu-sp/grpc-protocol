@@ -8,10 +8,10 @@ package rm2
 
 import (
 	proto "github.com/golang/protobuf/proto"
-	otw "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/rm2_services/otw"
-	phantha "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/rm2_services/phantha"
-	processing "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/rm2_services/processing"
-	warehouse "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/rm2_services/warehouse"
+	otw "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/rm2_services/otw"
+	phantha "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/rm2_services/phantha"
+	processing "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/rm2_services/processing"
+	warehouse "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/rm2_services/warehouse"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"

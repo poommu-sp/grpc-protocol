@@ -8,7 +8,7 @@ package processing
 
 import (
 	proto "github.com/golang/protobuf/proto"
-	common "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/common"
+	common "github.com/poommu-sp/public-exim-grpc-protocol/samantra/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"

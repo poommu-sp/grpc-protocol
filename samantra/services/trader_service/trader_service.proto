@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/trader_service;trader";
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/trader_service;trader";
 
 // import "samantra/services/master_service/master.proto";
 package samantra.services.trader;

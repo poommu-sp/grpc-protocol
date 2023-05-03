@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/approve;approve";
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol/approve;approve";
 
 package approve;
 

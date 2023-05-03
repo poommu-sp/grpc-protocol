@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/ping;ping";
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol/ping;ping";
 
 package ping;
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/otw_service;otw";
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/otw_service;otw";
 
 import "google/protobuf/timestamp.proto";
 package samantra.services.otw;

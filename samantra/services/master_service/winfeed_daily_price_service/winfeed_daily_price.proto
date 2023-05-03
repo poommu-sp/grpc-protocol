@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/master_service/winfeed_daily_price_service;winfeed_daily_price";
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol/samantra/services/master_service/winfeed_daily_price_service;winfeed_daily_price";
 
 package samantra.services.master.winfeed_daily_price;
 

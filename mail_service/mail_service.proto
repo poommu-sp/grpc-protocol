@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/mail_service;mail_service";
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol/mail_service;mail_service";
 
 package mail_service;
 
