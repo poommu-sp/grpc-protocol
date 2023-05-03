@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/trader_service;trader";
+
+// import "samantra/services/master_service/master.proto";
+package samantra.services.trader;
+
+service TraderService {
+    rpc TraderID(TraderIDPayload) returns(TraderIDResponse);
+}
+
+message TraderIDPayload {
+    int32 traderID = 1;
+}
+
+message TraderIDResponse {
+    int32 ID = 1;
+    string code = 2;
+    string nameShort = 3;
+    string nameEN = 4;
+    string nameTH = 5;
+    int32 status = 6;
+    string type = 7;
+    bool isCPT = 8;
+    bool isDeal = 9;
+}

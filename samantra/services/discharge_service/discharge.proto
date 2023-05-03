@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/discharge_service;discharge";
+
+import "google/protobuf/timestamp.proto";
+import "samantra/services/master_service/master.proto";
+package samantra.services.discharge;
+
+service Discharge {
+  rpc ListDischarge(ListDischargePayload) returns (ListDischargeResponse) {}
+}
+
+message ListDischargePayload {
+  google.protobuf.Timestamp RequestDate = 1;
+}
+
+message ListDischargeResponse {
+  repeated DischargeItem ListDischarge = 1;
+}
+
+message DischargeItem {
+  string LotNO = 1;
+  string ProductCode = 2;
+  master.Plant Plant = 3;
+  double QuotaWGH = 4;
+}
+
+
+
+

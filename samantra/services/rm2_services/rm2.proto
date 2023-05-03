@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/rm2_services;rm2";
+
+package samantra.services.rm2;
+
+import "samantra/services/rm2_services/phantha/phantha.proto";
+import "samantra/services/rm2_services/otw/otw.proto";
+import "samantra/services/rm2_services/processing/processing.proto";
+import "samantra/services/rm2_services/warehouse/warehouse.proto";
+import "google/protobuf/timestamp.proto";
+
+service RM2 {
+  rpc ListWarehouseSummaryByLot(ListWarehouseSummaryByLotRequest) returns (ListWarehouseSummaryByLotResponse) {}
+  rpc ListPhanthaOTW(ListPhanthaOTWRequest) returns (ListPhanthaOTWResponse) {}
+  rpc ListProcessings(ListProcessingRequest) returns (ListProcessingResponse) {}
+}
+
+message ListWarehouseSummaryByLotRequest {
+  google.protobuf.Timestamp date = 1;
+  repeated string product_codes = 2;
+}
+
+message ListWarehouseSummaryByLotResponse {
+  repeated warehouse.Warehouse warehouses = 1;
+}
+
+message ListPhanthaOTWRequest {
+  google.protobuf.Timestamp date = 1;
+  repeated string product_codes = 2;
+}
+
+message ListPhanthaOTWResponse {
+  repeated phantha.Phantha phantas = 1;
+  repeated otw.OTW otws = 2;
+}
+
+message ListProcessingRequest {
+  google.protobuf.Timestamp date = 1;
+  repeated string product_codes = 2;
+}
+
+message ListProcessingResponse {
+  repeated processing.Processing processings = 1;
+}

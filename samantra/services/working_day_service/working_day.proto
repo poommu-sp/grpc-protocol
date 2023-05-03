@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/working_day_service;working_day";
+
+import "google/protobuf/timestamp.proto";
+
+package samantra.services.working_day;
+
+
+service WorkingDay {
+  rpc GetGetWorkingDayByDateAndPlantCodes(WorkingDayPayload) returns (WorkingDayResponse) {}
+}
+
+message WorkingDayPayload {
+  google.protobuf.Timestamp Date = 1;
+  repeated string PlantCodes = 2;
+}
+
+message WorkingDayInfo {
+  string PlantCode = 1;
+  google.protobuf.Timestamp Date = 2;
+  string Day = 3;
+  bool IsWork = 4;
+}
+
+message WorkingDayGroup {
+  string PlantCode = 1;
+  repeated WorkingDayInfo WorkingDays = 2;
+}
+
+message WorkingDayResponse {
+  repeated WorkingDayGroup WorkingDayGroups = 1;
+}

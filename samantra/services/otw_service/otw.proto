@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/otw_service;otw";
+
+import "google/protobuf/timestamp.proto";
+package samantra.services.otw;
+
+service OTW {
+  rpc ListOtw(ListOTWPayload) returns (ListOTWResponse) {}
+}
+
+message ListOTWPayload {
+  google.protobuf.Timestamp RequestDate = 1;
+}
+
+message ListOTWResponse {
+  repeated OTWItem ListOTW = 1;
+}
+
+message OTWItem {
+  string ProductCode = 1;
+  string ProductName = 2;
+  string Operation = 3;
+  string SubOperation = 4;
+  string FromLocation = 5;
+  int64 FromLocationPlantId = 6;
+  string DeliveryLocation = 7;
+  int64 DeliveryLocationPlantId = 8;
+  double RouteQuotaWGH = 9;
+  string LotNO = 10;
+  string RouteEXT = 11;
+  int64 APTNo = 12;
+  string VehicleCode = 13;
+  string Arrived = 14;
+  google.protobuf.Timestamp SrcGrossTime = 15;
+  double Weight = 16;
+  bool Valid = 17;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/winfeed_services/morning_report_service;morning_report";
+
+package samantra.services.winfeed.morning_report;
+
+service MorningReport {
+  rpc InsertDailySnapshot(MorningReportInsertDailySnapshotPayLoad) returns (MorningReportInsertDailySnapshotResponse) {}
+}
+
+message MorningReportInsertDailySnapshotPayLoad {
+  string Date = 1;
+}
+
+message MorningReportInsertDailySnapshotResponse {
+  int64 Status = 1;
+  string Message = 2;
+}

@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/local_trade_services/local_manage_lot_service;local_manage_lot";
+
+package samantra.services.local_trade.local_manage_lot;
+
+service LocalManageLot {
+  rpc GetInterTradeWayByParam(LocalManageLotForOSPayload) returns (LocalManageLotForOSResponse) {}
+  rpc GetLocalTradeWayByParam(LocalManageLotForOSPayload) returns (LocalManageLotForOSResponse) {}
+}
+
+message Amount {
+  double Value = 1;
+  int64 UnitID = 2;
+}
+message IncludingTransportView {
+  repeated int64 PlantIDList = 1;
+  Amount Cost = 2;
+}
+
+message LocalLotForOS {
+  string LotNO = 1;
+  string UUID = 2;
+  string ETA = 3;
+  string ETD = 4;
+  double Tonnes = 5;
+  int64 PlantTypeID = 6;
+  string PODNo = 7;
+  string BrokerContractNo = 8;
+  string PortName = 9;
+  int64 NumberOfContainer = 10;
+  int64 SeaFreightID = 11;
+}
+
+message LocalManageLotForOSPayload {
+  repeated string ProductCodeList = 1;
+  repeated int64  PlantTypeList = 2;
+  int64 ETAStartDateUnix = 3;
+  int64 ETAEndDateUnix = 4;
+}
+
+message LocalManageLotForOS {
+  string ProductCode = 1;
+  int64 PlantTypeID = 2;
+  Amount Price = 3;
+  Amount ExchangeRate = 4;
+  Amount ExcludingTransport = 5;
+  repeated IncludingTransportView IncludingTransport = 6;
+  repeated LocalLotForOS Lots = 7;
+}
+
+message LocalManageLotForOSResponse {
+  repeated LocalManageLotForOS LocalManageLotForOSList = 1;
+}

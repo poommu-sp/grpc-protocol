@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/material_area_service;material_area";
+
+import "google/protobuf/timestamp.proto";
+import "samantra/services/master_service/master.proto";
+
+package samantra.services.material_area;
+
+
+service MaterialArea {
+  rpc GetMaterialAreaByDateAndPlantCodes(MaterialAreaPayload) returns (MaterialAreaResponse) {}
+}
+
+message MaterialAreaPayload {
+  google.protobuf.Timestamp Date = 1;
+  repeated string PlantCodes = 2;
+}
+
+message Area {
+  float NeedBulk = 1;
+  float NeedBag = 2;
+  float ExistBulk = 3;
+  float ExistBag = 4;
+}
+
+message MaterialAreaInfo {
+  google.protobuf.Timestamp Date = 1;
+  master.Plant Plant = 2;
+  float LimitBulk = 3;
+  float LimitBag = 4;
+  repeated Area Areas = 5;
+}
+
+message MaterialAreaResponse {
+  repeated MaterialAreaInfo MaterialAreas = 1;
+}

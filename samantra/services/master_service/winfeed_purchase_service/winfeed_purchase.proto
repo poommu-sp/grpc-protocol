@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/master_service/winfeed_purchase_service;winfeed_purchase";
+
+package samantra.services.master.winfeed_purchase;
+
+import "google/protobuf/timestamp.proto";
+
+message WinfeedPurchase {
+  string ID = 1;
+  google.protobuf.Timestamp ReceivedDate = 2;
+  google.protobuf.Timestamp ReceivedTime = 3;
+  string PlantCode = 4;
+  string PlantName = 5;
+  string ProductGroup = 6;
+  string ProductCode = 7;
+  string VendorCode = 8;
+  string VendorName = 9;
+  string LicensePlate = 10;
+  string TrailerLicense = 11;
+  double SerialNO = 12;
+  double WeightNO = 13;
+  string GRDocNO = 14;
+  double NetWeight = 15;
+  double PaymentWeight = 16;
+  double ReceiveQuantity = 17;
+  double PackagingWeight = 18;
+  double NetAmount = 19;
+  string TGRNNO = 20;
+  string GRNNO = 21;
+  google.protobuf.Timestamp TGRNDate = 22;
+  string ContractNO = 23;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/rm2_services/processing;processing";
+
+package samantra.services.rm2.processing;
+
+import "samantra/common/common.proto";
+
+
+message Processing {
+  string lot_no = 1;
+  repeated common.PlantQuantity Quantities = 2;
+}
+

@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/winfeed_services/warehouse_stock_report_service;warehouse_stock_report";
+
+import "google/protobuf/timestamp.proto";
+import "samantra/common/common.proto";
+package samantra.services.winfeed.warehouse_stock_report;
+
+service WarehouseStockReport {
+  rpc ListWarehouseStockReport(ListWarehouseStockReportPayload) returns (ListWarehouseStockReportResponse) {}
+}
+
+message ListWarehouseStockReportPayload {
+  google.protobuf.Timestamp RequestDate = 1;
+}
+
+message ListWarehouseStockReportResponse {
+  repeated WarehouseStock ListWarehouseStockReport = 1;
+}
+
+message WarehouseStock {
+  string NameInReport = 1;
+  string SubNameInReport = 2;
+  string LotNO = 3;
+  string Warehouse = 4;
+  int32 Age = 5;
+  double Hold = 6;
+  repeated common.PlantQuantity PlantQuantities = 7;
+  string ProductCode = 8;
+  google.protobuf.Timestamp WarehouseSmokedDate = 9;
+  google.protobuf.Timestamp WarehouseDGasDate = 10;
+  google.protobuf.Timestamp WarehouseLastedDGasDate = 11;
+  string Remark = 12;
+}

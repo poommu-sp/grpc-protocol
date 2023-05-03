@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/samantra/services/local_trade_services/pricing_service;pricing";
+
+package samantra.services.local_trade.pricing;
+
+service Pricing {
+  rpc InitializePerWeek(PricingInitializePerWeekPayLoad) returns (PricingInitializePerWeekResponse) {}
+}
+
+message PricingInitializePerWeekPayLoad {
+  string StartDate = 1;
+}
+
+message PricingInitializePerWeekResponse {
+  int64 Status = 1;
+  string Message = 2;
+}

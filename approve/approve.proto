@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/poommu-sp/public-exim-grpc-protocol.git/approve;approve";
+
+package approve;
+
+service Approve {
+  rpc InitApprovalOperationList(InitApprovalOperationListRequest) returns (InitApprovalOperationListResponse) {}
+  rpc RollbackInitApprovalOperationList(InitApprovalOperationListRequest) returns (Empty) {}
+  rpc Approve(ApproveRequest) returns (ApproveResponse) {}
+  rpc Acknowledge(ApproveRequest) returns (AcknowledgeResponse) {}
+  rpc Reject(RejectRequest) returns (Empty) {}
+  rpc RollbackApprovalOperation(ApproveRequest) returns (Empty) {}
+  rpc ApprovalOperationListByMenu(ApprovalOperationListByMenuRequest) returns (ApprovalOperationListByMenuResponse) {}
+  rpc GetCurrentApprovalEvent(ApproveEventRequest) returns (ApproveEventResponse) {}
+}
+
+message Empty {}
+
+message InitApprovalOperationListRequest {
+  string id = 1;
+  string menu = 2;
+}
+
+message InitApprovalOperationListResponse {
+  repeated string next_roles = 1;
+}
+
+message ApproveRequest {
+  string id = 1;
+  string menu = 2;
+}
+
+message ApproveResponse {
+  bool completed = 1;
+  repeated string next_roles = 2;
+}
+
+message RejectRequest {
+  string id = 1;
+  string menu = 2;
+  string remark = 3;
+}
+
+message AcknowledgeResponse {
+  repeated string next_roles = 1;
+}
+
+message ApprovalOperationListByMenuRequest {
+  string menu = 1;
+}
+
+message ApprovalOperationListByMenuResponse {
+  repeated ApprovalOperation ApprovalOperationListByMenu = 1;
+}
+
+message ApprovalOperation {
+  int64  ID = 1;
+  string DocumentId = 2;
+  string Menu = 3;
+  string Role = 4;
+  string ApprovalType = 5;
+  bool IsChildRole = 6;
+  string ApprovedBy = 7;
+  google.protobuf.Timestamp ApprovedAt = 8;
+}
+
+message ApproveEventRequest {
+  string menu = 1;
+}
+
+message ApproveEventResponse {
+  repeated ApproveEvent ApproveEventList = 1;
+  ApproveOutsideReceiver ApproveOutsideReceiver = 2;
+}
+
+message ApproveEvent {
+  int64 ID = 1;
+  string Role = 2;
+  google.protobuf.Timestamp EffectiveDate = 3;
+  string Menu = 4;
+  string Type = 5;
+  int64 Level = 6;
+  bool IsChildRole = 7;
+  repeated string UserID = 8;
+}
+
+message ApproveOutsideReceiver {
+  int64 ID = 1;
+  string Menu = 2;
+  repeated string UserID = 3;
+  google.protobuf.Timestamp ApproveEffectiveDatedAt = 4;
+}
